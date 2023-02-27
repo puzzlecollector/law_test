@@ -23,7 +23,7 @@ class MyServiceNameClient:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-query", type=str)
-    parser.add_arugment("-candidate", type=str)
+    parser.add_argument("-candidate", type=str)
     parser.add_argument("-query_index_dict_path", type=str)
     parser.add_argument("-law_large_df_path", type=str)
     parser.add_argument("--ip", default="localhost", type=str)
