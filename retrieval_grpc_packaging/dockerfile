@@ -1,10 +1,12 @@
-from nvcr.io/nvidia/pytorch:22.07-py3
+FROM nvcr.io/nvidia/pytorch:22.07-py3
 
 RUN mkdir /root/myservicename
 
 COPY . /root/myservicename
 
 WORKDIR /root/myservicename
+
+RUN pip install -r requirements.txt
 
 RUN python -m pip --no-cache-dir install --upgrade pip grpcio grpcio-tools && \
     ldconfig && \
