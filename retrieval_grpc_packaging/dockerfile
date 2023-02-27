@@ -1,0 +1,16 @@
+from nvcr.io/nvidia/pytorch:22.07-py3
+
+RUN mkdir /root/myservicename
+
+COPY . /root/myservicename
+
+WORKDIR /root/myservicename
+
+RUN python -m pip --no-cache-dir install --upgrade pip grpcio grpcio-tools && \
+    ldconfig && \
+    rm -rf /tmp/* /workspace/* && \
+    python -m grpc.tools.protoc -I. --python_out . --grpc_python_out . ./myservice.proto
+
+EXPOSE 35015
+
+ENTRYPOINT ["python", "myservice_server.py"]
