@@ -12,5 +12,5 @@ message MyOutput {
 }
 
 service MyServiceName {
-  rpc processor(MyInput) returns (MyOutput)
+  rpc processor(MyInput) returns (MyOutput); 
 }
