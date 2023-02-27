@@ -1,0 +1,16 @@
+syntax = "proto3"
+
+message MyInput {
+  string query_str = 1;
+  string candidate_path = 2;
+  string query_index_dict_path = 3;
+  string law_large_df_path = 4; 
+}
+
+message MyOutput {
+  string mystrout = 1;
+}
+
+service MyServiceName {
+  rpc processor(MyInput) returns (MyOutput)
+}
